@@ -1,0 +1,12 @@
+@import 'reset', 'variables';
+
+.app {
+  background-color: var(--bg-color);
+  font-family: 'Rubik Glitch';
+  .title {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    color: var(--primary-color);
+  }
+}
