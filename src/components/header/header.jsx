@@ -9,7 +9,6 @@ export function Header() {
     <header className="header">
       <div className="header__inner container">
         <img src={logoIcon} alt="logo" />
-        {/* <div className="header__text-field"></div> */}
         <div className="header__details">
           <span className="header__detail">235 Х</span>
           <button className="header__detail header__detail--button">

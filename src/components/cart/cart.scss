@@ -1,0 +1,142 @@
+.cart {
+  font-family: 'Montserrat';
+
+  &__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 42px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 121.99%;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-color);
+  }
+
+  &__close-icon {
+    cursor: pointer;
+  }
+
+  &-card {
+    padding: 24px 40px;
+    color: var(--text-color);
+    background-color: var(--card-color);
+    margin-bottom: 12px;
+    border-radius: 20px;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 138.86%;
+      letter-spacing: 0.04em;
+    }
+
+    &__button,
+    &__amount {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 130.49%;
+      letter-spacing: 0.04em;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    &__button {
+      cursor: pointer;
+      border: none;
+    }
+
+    &__price {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    &__detail {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--secondary-bg-color);
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+
+      &--added {
+        background-color: var(--primary-color);
+      }
+
+      &:hover:not(.products-card__detail--added) {
+        background-color: var(--bg-color);
+      }
+    }
+  }
+
+  &-conclusion {
+    background-color: var(--card-color);
+    padding: 24px 70px;
+    border-radius: 20px;
+    margin-top: 20px;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__price-container {
+      display: flex;
+      align-items: center;
+      color: var(--text-color);
+      column-gap: 48px;
+    }
+
+    &__text {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 121.99%;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-color);
+    }
+
+    &__price {
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 37px;
+      letter-spacing: 0.04em;
+      color: var(--text-color);
+    }
+
+    &__button {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 20px 45px;
+      background-color: var(--button-bg-color);
+      color: var(--bg-color);
+      cursor: pointer;
+      border: none;
+      border-radius: 38px;
+    }
+  }
+}
