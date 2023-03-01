@@ -1,12 +1,19 @@
 @import 'reset', 'variables';
 
-.app {
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
   background-color: var(--bg-color);
-  font-family: 'Rubik Glitch';
-  .title {
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 120%;
-    color: var(--primary-color);
-  }
+}
+
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.app {
+  // font-family: 'Rubik Glitch';
 }
