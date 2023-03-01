@@ -1,0 +1,69 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Montserrat";
+  font-style: normal;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+  }
+
+  &__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background: rgba(79, 94, 121, 0.58);
+    box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.24),
+      -1px -3px 3px rgba(63, 74, 96, 0.42);
+    border-radius: 300px;
+    img {
+      width: 90px;
+      height: 104px;
+    }
+  }
+
+  &__name {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 120%;
+  }
+
+  &__team {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+  }
+
+  &__pointContainer {
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 130px;
+    background-color: var(--secondary-bg-color);
+    padding: 40px 80px;
+    box-shadow: 0px 0px 30px rgba(132, 132, 132, 0.25);
+    border-radius: 20px;
+  }
+
+  &__check, &__point {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 120%;
+  }
+  &__point{
+    margin-left: 25px;
+  }
+}
