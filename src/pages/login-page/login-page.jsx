@@ -9,7 +9,7 @@ export function LoginPage() {
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
 
-  localStorage.getItem("user");
+
 
   const navigate = useNavigate();
 
@@ -21,10 +21,10 @@ export function LoginPage() {
       })
       .then((response) => {
         if (response.data.token) {
-          localStorage.setItem("user", JSON.stringify(response.data.token));
+          localStorage.setItem("token", JSON.stringify(response.data.token));
+          navigate("/");
         }
-      });
-    navigate("/");
+      }).catch(() => setError(true));
   };
 
   return (
