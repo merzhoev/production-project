@@ -3,12 +3,12 @@ import trashIcon from 'assets/images/trash.svg';
 import closeIcon from 'assets/images/close.svg';
 import './cart.scss';
 
-export function Cart() {
+export function Cart({ onClose }) {
   return (
     <div className="cart">
       <div className="cart__title-container">
         <h2 className="cart__title">Корзина</h2>
-        <img className="cart__close-icon" src={closeIcon} alt="close" />
+        <img onClick={onClose} className="cart__close-icon" src={closeIcon} alt="close" />
       </div>
       <div className="cart-card">
         <div className="cart-card__inner">
