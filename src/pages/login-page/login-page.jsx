@@ -1,5 +1,7 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import instance from "services/axios-instance";
+
 import "./login-page.scss";
 
 export function LoginPage() {
@@ -9,10 +11,20 @@ export function LoginPage() {
 
   localStorage.getItem("user");
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    // navigate("/")
+    instance
+      .post("auth/login", {
+        login: login,
+        password: pass,
+      })
+      .then((response) => {
+        if (response.data.token) {
+          localStorage.setItem("user", JSON.stringify(response.data.token));
+        }
+      });
+    navigate("/");
   };
 
   return (
