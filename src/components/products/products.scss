@@ -1,0 +1,66 @@
+.products {
+  font-family: 'Montserrat';
+
+  &__categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+
+  &__category {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--text-color);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      cursor: pointer;
+
+      &:hover {
+        .products__sort-text {
+          color: var(--primary-color);
+        }
+        .products__sort-icon path {
+          stroke: var(--primary-color);
+        }
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 120%;
+      color: var(--text-color);
+    }
+
+    &-icon {
+      width: 18px;
+      height: 23px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+}
