@@ -1,0 +1,25 @@
+.promo {
+  padding: 140px 0;
+  background: no-repeat center center url('/assets/images/promo.png');
+  background-size: cover;
+  margin-bottom: 100px;
+
+  &__title-container {
+    max-width: 935px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-family: 'Rubik Glitch';
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: var(--primary-color);
+
+    @media screen and (max-width: 576px) {
+      font-size: 40px;
+    }
+  }
+}
