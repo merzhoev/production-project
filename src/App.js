@@ -1,8 +1,10 @@
+import { LoginPage } from "pages/login-page";
+
+
 function App() {
   return (
     <div className="app">
-      <h1 className="title">Забери призы по заслуге за
-        хаккойны</h1>
+      <LoginPage/>
     </div>
   );
 }
