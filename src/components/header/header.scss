@@ -1,0 +1,36 @@
+.header {
+  padding: 60px 0;
+  background-color: var(--bg-color);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__detail {
+    background-color: var(--secondary-bg-color);
+    padding: 10px 14px;
+    border-radius: 100px;
+    flex-shrink: 0;
+    color: var(--text-color);
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+
+    &--button {
+      padding: 0;
+      width: 45px;
+      height: 45px;
+      border-radius: 100%;
+      border: none;
+    }
+  }
+}
