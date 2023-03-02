@@ -24,13 +24,11 @@ export const categorySlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCategories.pending, (state, action) => {
-        // console.log('pending', action)
       })
       .addCase(getCategories.fulfilled, (state, action) => {
         state.items = action.payload.categories
       })
       .addCase(getCategories.rejected, (state, action) => {
-        // console.log('rejected', action)
       })
   },
 

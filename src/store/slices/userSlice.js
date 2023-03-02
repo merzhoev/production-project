@@ -19,13 +19,11 @@ export const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getUser.pending, (state, action) => {
-        // console.log('pending', action)
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.data = action.payload.user
       })
       .addCase(getUser.rejected, (state, action) => {
-        // console.log('rejected', action)
       });
   },
 });

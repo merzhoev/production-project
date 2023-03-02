@@ -24,17 +24,11 @@ export const productSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state, action) => {
-        // console.log('pending', action)
       })
       .addCase(getProducts.fulfilled, (state, action) => {
-        action.payload.products.forEach((product) => {
-          product.image = `https://store.kod06.ru${product.image}`
-        })
-
         state.items = action.payload.products
       })
       .addCase(getProducts.rejected, (state, action) => {
-        // console.log('rejected', action)
       })
   },
 })

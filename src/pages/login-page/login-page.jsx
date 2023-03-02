@@ -5,8 +5,8 @@ import { isAuth } from 'services/useAuth';
 import './login-page.scss';
 
 export function LoginPage() {
-  const [login, setLogin] = useState('example@mail.ru');
-  const [pass, setPass] = useState('Pass1234$');
+  const [login, setLogin] = useState('');
+  const [pass, setPass] = useState('');
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
