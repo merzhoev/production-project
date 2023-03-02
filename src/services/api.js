@@ -15,7 +15,7 @@ class Api {
 
   //Получение продуктов
   getProducts() {
-    return instance.get("products/");
+    return instance.get("products");
   }
 
   //Получение категорий

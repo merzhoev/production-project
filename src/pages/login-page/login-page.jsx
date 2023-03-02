@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { $api } from "services/api";
-import "./login-page.scss";
-
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { $api } from 'services/api';
+import { isAuth } from 'services/useAuth';
+import './login-page.scss';
 
 export function LoginPage() {
-  const [login, setLogin] = useState("");
-  const [pass, setPass] = useState("");
+  const [login, setLogin] = useState('example@mail.ru');
+  const [pass, setPass] = useState('Pass1234$');
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
@@ -16,12 +16,19 @@ export function LoginPage() {
       .login(login, pass)
       .then((response) => {
         if (response.data.token) {
-          localStorage.setItem("token", JSON.stringify(response.data.token));
-          navigate("/");
+          localStorage.setItem('token', JSON.stringify(response.data.token));
+          navigate('/');
         }
       })
       .catch(() => setError(true));
   };
+
+  useEffect(() => {
+    if (isAuth()) {
+      console.log('sdsd');
+      navigate('/');
+    }
+  }, []);
 
   return (
     <div className="main">
@@ -49,11 +56,11 @@ export function LoginPage() {
               Неверный логин или пароль
             </label>
           ) : (
-            ""
+            ''
           )}
           <div className="auth__buttons ">
             <button onClick={() => handleLogin()} className="btn">
-              {" "}
+              {' '}
               Войти
             </button>
           </div>
