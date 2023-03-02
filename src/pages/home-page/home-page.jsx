@@ -3,7 +3,7 @@ import { Promo } from "components/promo";
 import { Products } from "components/products";
 import { Cart } from "components/cart";
 
-export default function HomePage() {
+export function HomePage() {
   return (
     <>
       <Promo />
