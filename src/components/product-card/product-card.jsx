@@ -12,7 +12,7 @@ export function ProductCard({ id, imageUrl, title, price }) {
       </div>
       <div className="products-card__details">
         <button className="products-card__detail">
-          <img src={cartIcon} alt="cart" />
+          В корзину
         </button>
       </div>
     </div>

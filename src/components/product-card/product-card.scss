@@ -44,19 +44,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--secondary-bg-color);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
+    background-color: var(--bg-color);
+    padding: 10px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
+    color: #fff;
 
     &--added {
       background-color: var(--primary-color);
     }
 
     &:hover:not(.products-card__detail--added) {
-      background-color: var(--bg-color);
+      // background-color: var(--primary-color);
+      opacity: 0.8;
     }
   }
 }

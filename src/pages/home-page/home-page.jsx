@@ -7,7 +7,6 @@ export function HomePage() {
   return (
     <>
       <Promo />
-      {/* <Cart /> */}
       <Products />
     </>
   );

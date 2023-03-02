@@ -7,6 +7,21 @@ class Api {
       password: password,
     });
   }
+
+  //Получение данных пользователя
+  getUser() {
+    return instance.get("users/me");
+  }
+
+  //Получение продуктов
+  getProducts() {
+    return instance.get("products/");
+  }
+
+  //Получение категорий
+  getCategories() {
+    return instance.get("categories");
+  }
 }
 
 export const $api = new Api();
