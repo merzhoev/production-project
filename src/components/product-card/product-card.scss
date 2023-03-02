@@ -44,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
     padding: 10px;
     border-radius: 8px;
     border: none;
@@ -52,12 +52,13 @@
     color: #fff;
 
     &--added {
-      background-color: var(--primary-color);
+      background-color: var(--bg-color);
+      cursor: default;
     }
 
+
     &:hover:not(.products-card__detail--added) {
-      // background-color: var(--primary-color);
-      opacity: 0.8;
+      background-color: #38abdf;
     }
   }
 }

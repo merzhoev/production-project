@@ -11,9 +11,9 @@ export function Header() {
 
   return (
     <header className="header">
-      <div className="header__inner container">
+      <div className="header__inner ">
         <Link to="/" >
-          <img src={logoIcon} alt="logo" />
+          <img className="header__logo" src={logoIcon} alt="logo" />
         </Link>
         <div className="header__details">
           <span className="header__detail">235 Х</span>

@@ -5,7 +5,11 @@ import { Products } from 'components/products';
 export function HomePage() {
   return (
     <>
-      <Promo />
+      <Promo>
+        Забери призы по заслуге <br />
+        за
+        <br /> хаккойны
+      </Promo>
       <Products />
     </>
   );
