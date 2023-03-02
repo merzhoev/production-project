@@ -2,7 +2,6 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://store.kod06.ru/api",
-  // baseURL: "https://store.kod06.ru/api",
 });
 
 instance.interceptors.request.use(

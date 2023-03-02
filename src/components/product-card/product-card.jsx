@@ -1,22 +1,23 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "store/slices/cartSlice";
-import "./product-card.scss";
-
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartActions } from 'store/slices/cartSlice';
+import './product-card.scss';
 
 export function ProductCard({ id, image, title, price }) {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.items);
-  const isCartAdded = cartProducts.some(card => card.id === id)
+  const isCartAdded = cartProducts.some((card) => card.id === id);
 
   const handleClick = () => {
-    dispatch(cartActions.setProducts({
+    const cartProducts = {
       id,
       title,
       image,
+      amount: 1,
       price,
-      amount: 0,
-    }));
+      totalPrice: price,
+    };
+    dispatch(cartActions.setProducts(cartProducts));
   };
 
   return (
@@ -27,8 +28,15 @@ export function ProductCard({ id, image, title, price }) {
         <span className="products-card__price">{price} Х</span>
       </div>
       <div className="products-card__details">
-        <button disabled={isCartAdded} onClick={() => handleClick()} className={isCartAdded ? "products-card__detail products-card__detail--added" : "products-card__detail" }>
-          {isCartAdded ? "Добавлено" : "В корзину"}
+        <button
+          disabled={isCartAdded}
+          onClick={() => handleClick()}
+          className={
+            isCartAdded
+              ? 'products-card__detail products-card__detail--added'
+              : 'products-card__detail'
+          }>
+          {isCartAdded ? 'Добавлено' : 'В корзину'}
         </button>
       </div>
     </div>

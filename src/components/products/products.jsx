@@ -13,7 +13,6 @@ export function Products() {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [sortBy, setSortBy] = useState('asc');
 
-
   function handleCategoryClick(categoryId) {
     setActiveCategoryId(categoryId);
   }

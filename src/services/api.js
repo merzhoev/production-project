@@ -8,6 +8,10 @@ class Api {
     });
   }
 
+  makeOrder(orders) {
+    return instance.post("orders/make", { orders });
+  }
+
   //Получение данных пользователя
   getUser() {
     return instance.get("users/me");
