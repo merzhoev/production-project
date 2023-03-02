@@ -6,11 +6,11 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async (config) => {
-    const session = JSON.parse(localStorage.getItem("user"));
+    const session = JSON.parse(localStorage.getItem("token"));
 
-    if (session?.access_token) {
+    if (session?.token) {
       config.headers = {
-        authorization: `Bearer ${session?.access_token}`,
+        authorization: `Bearer ${session?.token}`,
       };
     }
 
@@ -18,6 +18,25 @@ instance.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+instance.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const config = error?.config;
+
+    if (error?.response?.status === 401 && !config?.sent) {
+      config.sent = true;
+
+      localStorage.removeItem("token")
+
+      return axios(config);
+    }
+    return Promise.reject(error);
+  }
+);
+
+
+
 
 
 export default instance;

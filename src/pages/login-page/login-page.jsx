@@ -1,30 +1,27 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import instance from "services/axios-instance";
-
+import { $api } from "services/api";
 import "./login-page.scss";
+
+
 
 export function LoginPage() {
   const [login, setLogin] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState(false);
 
-
-
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    instance
-      .post("auth/login", {
-        login: login,
-        password: pass,
-      })
+    $api
+      .login(login, pass)
       .then((response) => {
         if (response.data.token) {
           localStorage.setItem("token", JSON.stringify(response.data.token));
           navigate("/");
         }
-      }).catch(() => setError(true));
+      })
+      .catch(() => setError(true));
   };
 
   return (
