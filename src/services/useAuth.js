@@ -1,12 +1,9 @@
 import { Navigate } from "react-router-dom";
 
-const useAuth = () => {
-  const user = localStorage.getItem("token");
-  if (user) {
-    return true;
-  } else {
-    return false;
-  }
+export const useAuth = () => {
+  const token = localStorage.getItem("token");
+
+  return Boolean(token)
 };
 
 const ProtectedRoute = ({ children }) => {
