@@ -3,8 +3,8 @@ import { $api } from 'services/api'
 
 export const getProducts = createAsyncThunk(
   'product/getProducts',
-  async () => {
-    const response = await $api.getProducts()
+  async (params) => {
+    const response = await $api.getProducts(params)
     return response.data
   }
 )

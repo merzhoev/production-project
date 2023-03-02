@@ -1,45 +1,67 @@
-import React, { useEffect } from 'react';
-import './products.scss';
+import React, { useEffect, useState } from 'react';
 import { ProductCard } from 'components/product-card';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from 'store/slices/categorySlice';
 import { getProducts } from 'store/slices/productSlice';
-
-// const categories = ['Мерч', 'Техника', 'Компьютерная периферия', 'Аксессуары', 'Все'];
-// const cards = Array.from({ length: 6 }, (_, i) => ({
-//   id: i + 1,
-//   imageUrl: 'https://lottserves.org/wp-content/uploads/2017/10/500x500.png',
-//   title: 'Худи',
-//   price: 10,
-// }));
+import classNames from 'classnames';
+import './products.scss';
 
 export function Products() {
+  const dispatch = useDispatch();
   const products = useSelector((state) => state.product.items);
   const categories = useSelector((state) => state.category.items);
+  const [activeCategoryId, setActiveCategoryId] = useState(null);
+  const [sortBy, setSortBy] = useState('asc');
 
 
-  const dispatch = useDispatch();
+  function handleCategoryClick(categoryId) {
+    setActiveCategoryId(categoryId);
+  }
+
+  function handleSortClick() {
+    setSortBy(sortBy === 'asc' ? 'desc' : 'asc');
+  }
 
   useEffect(() => {
     dispatch(getCategories());
-    dispatch(getProducts());
   }, []);
+
+  useEffect(() => {
+    const categoryQuery = activeCategoryId === null ? '' : `&categoryId=${activeCategoryId}`;
+    const sortQuery = `sort=${sortBy}`;
+    const queryParams = `?${sortQuery}${categoryQuery}`;
+
+    dispatch(getProducts(queryParams));
+  }, [activeCategoryId, sortBy]);
 
   return (
     <div className="products container">
       <ul className="products__categories">
         {categories.map(({ id, title }) => (
-          <li key={id} className="products__category">
+          <li
+            key={id}
+            onClick={() => handleCategoryClick(id)}
+            className={classNames('products__category', {
+              'products__category--active': activeCategoryId === id,
+            })}>
             {title}
           </li>
         ))}
-        <li className="products__category">Все</li>
+        <li
+          onClick={() => handleCategoryClick(null)}
+          className={classNames('products__category', {
+            'products__category--active': activeCategoryId === null,
+          })}>
+          Все
+        </li>
       </ul>
       <div className="products__sort">
-        <div className="products__sort-item">
+        <div onClick={handleSortClick} className="products__sort-item">
           <span className="products__sort-text">По цене</span>
           <svg
-            className="products__sort-icon"
+            className={classNames('products__sort-icon', {
+              'products__sort-icon--reversed': sortBy === 'asc',
+            })}
             width="21"
             height="26"
             viewBox="0 0 21 26"

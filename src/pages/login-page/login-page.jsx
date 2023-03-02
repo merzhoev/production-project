@@ -25,7 +25,6 @@ export function LoginPage() {
 
   useEffect(() => {
     if (isAuth()) {
-      console.log('sdsd');
       navigate('/');
     }
   }, []);
