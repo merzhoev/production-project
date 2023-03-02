@@ -1,7 +1,6 @@
-import React from "react";
-import { Promo } from "components/promo";
-import { Products } from "components/products";
-import { Cart } from "components/cart";
+import React from 'react';
+import { Promo } from 'components/promo';
+import { Products } from 'components/products';
 
 export function HomePage() {
   return (
