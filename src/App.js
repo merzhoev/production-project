@@ -6,8 +6,17 @@ import { NotFoundPage } from "pages/notFound-page";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
 import ProtectedRoute from "services/useAuth";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getUser } from "store/slices/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
+  
   return (
     <>
       <Header />
