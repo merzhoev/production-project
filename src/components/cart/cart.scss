@@ -1,6 +1,11 @@
 .cart {
   font-family: 'Montserrat';
 
+  &__items{
+    overflow-y: auto;
+    height: 400px;
+  }
+
   &__title-container {
     display: flex;
     justify-content: space-between;

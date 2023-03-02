@@ -17,6 +17,7 @@ export function Products() {
   const products = useSelector((state) => state.product.items);
   const categories = useSelector((state) => state.category.items);
 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
