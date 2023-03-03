@@ -1,5 +1,5 @@
 .cart {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
 
   &__items {
     overflow-y: auto;
@@ -168,5 +168,38 @@
       border: none;
       border-radius: 38px;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart-card {
+    padding: 15px;
+  }
+
+  h3.cart-card__title {
+    font-size: 12px;
+  }
+
+  img.cart-card__image {
+    margin-right: 5px;
+    height: 40px;
+    width: 40px;
+  }
+
+  span.cart-card__price {
+    font-size: 15px;
+  }
+
+  .cart-conclusion {
+    padding: 15px 30px;
+  }
+
+  span.cart-conclusion__price {
+    font-size: 25px;
+  }
+
+  .cart-card__amount,
+  .cart-card__button {
+    padding: 5px;
   }
 }
