@@ -5,7 +5,7 @@ import { cartActions } from 'store/slices/cartSlice';
 
 export function CartCard({ id, title, image, totalPrice, amount }) {
   const dispatch = useDispatch();
-  const isMinusButtonDisabled = amount === 0;
+  const isMinusButtonDisabled = amount === 1;
 
   function handleRemoveClick() {
     dispatch(cartActions.removeProduct(id));
