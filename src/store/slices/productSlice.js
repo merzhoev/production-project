@@ -26,7 +26,7 @@ export const productSlice = createSlice({
       .addCase(getProducts.pending, (state, action) => {
       })
       .addCase(getProducts.fulfilled, (state, action) => {
-        action.payload.products.forEach((product) => (product.image = `https://store.kod06.ru${product.image}`))
+        // action.payload.products.forEach((product) => (product.image = `https://store.kod06.ru${product.image}`))
 
         state.items = action.payload.products
       })

@@ -1,5 +1,5 @@
 .cart {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 
   &__items {
     overflow-y: auto;
@@ -61,6 +61,18 @@
       font-size: 15px;
       line-height: 138.86%;
       letter-spacing: 0.04em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 150px;
+
+      @media screen and (max-width: 760px) {
+        max-width: 100px;
+      }
+
+      @media screen and (max-width: 576px) {
+        max-width: 60px;
+      }
     }
 
     &__button,
@@ -173,7 +185,12 @@
 
 @media screen and (max-width: 576px) {
   .cart-card {
-    padding: 15px;
+    padding: 8px;
+  }
+
+  .cart-card__detail {
+    width: 25px;
+    height: 25px;
   }
 
   h3.cart-card__title {
@@ -187,11 +204,11 @@
   }
 
   span.cart-card__price {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .cart-conclusion {
-    padding: 15px 30px;
+    padding: 15px 20px;
   }
 
   span.cart-conclusion__price {
@@ -200,6 +217,12 @@
 
   .cart-card__amount,
   .cart-card__button {
+    font-size: 12px;
     padding: 5px;
+  }
+
+  .cart-card__button {
+    width: 17px;
+    height: 25px;
   }
 }
