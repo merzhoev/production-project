@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './profile-page.scss';
 import userLogo from 'assets/images/user.svg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from 'store/slices/userSlice';
 
 export function ProfilePage() {
+  const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user.data);
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
 
   return (
     <div className="container profile">

@@ -9,6 +9,7 @@ import './products.scss';
 export function Products() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.items);
+  const cartProducts = useSelector((state) => state.cart.items);
   const categories = useSelector((state) => state.category.items);
   const [activeCategoryId, setActiveCategoryId] = useState(null);
   const [sortBy, setSortBy] = useState('asc');
@@ -32,6 +33,10 @@ export function Products() {
 
     dispatch(getProducts(queryParams));
   }, [activeCategoryId, sortBy]);
+
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div className="products container">

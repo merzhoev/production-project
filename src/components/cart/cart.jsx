@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import closeIcon from 'assets/images/close.svg';
 import './cart.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,6 +37,10 @@ export function Cart({ onClose }) {
         alert('Произошла ошибка!');
       });
   }
+
+  useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div className="cart">
