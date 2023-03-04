@@ -6,7 +6,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async (config) => {
-    const token = JSON.parse(localStorage.getItem("token"));
+    const token = JSON.parse(localStorage.getItem("token") || null);
 
     if (token) {
       config.headers = {
@@ -28,7 +28,7 @@ instance.interceptors.response.use(
       config.sent = true;
 
       localStorage.removeItem("token")
-
+      console.log('redirect')
       window.location.pathname = '/login'
 
       // return axios(config);
@@ -36,9 +36,5 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-
-
-
 
 export default instance;
