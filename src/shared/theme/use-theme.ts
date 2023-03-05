@@ -1,13 +1,15 @@
 import { useCallback, useContext } from 'react';
-import { useLatest } from '../hooks/use-latest';
-import { Theme, ThemeContext, LOCAL_STORAGE_THEME_KEY } from './theme-context';
+import { useLatest } from 'shared/lib/hooks/use-latest';
+import { ThemeContext } from './theme-context';
+import { LOCAL_STORAGE_THEME_KEY } from './theme.constants';
+import { Theme } from './theme.types';
 
 interface UseThemeOutput {
   theme: Theme;
   toggleTheme: () => void;
 }
 
-export default function useTheme(): UseThemeOutput {
+export function useTheme(): UseThemeOutput {
   const { theme, setTheme } = useContext(ThemeContext);
   const latestTheme = useLatest<Theme>(theme);
 
