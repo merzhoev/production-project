@@ -1,26 +1,21 @@
-import React, { useEffect } from 'react';
-import closeIcon from 'assets/images/close.svg';
-import './cart.scss';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CartCard } from 'components/cart-card/cart-card';
 import classNames from 'classnames';
 import { $api } from 'services/api';
 import { getUser } from 'store/slices/userSlice';
 import { cartActions } from 'store/slices/cartSlice';
+import './cart.scss';
 
-export function Cart({ onClose }) {
+export function Cart() {
   const dispatch = useDispatch();
   const userCoins = useSelector((state) => state.user.data.money);
   const cartProducts = useSelector((state) => state.cart.items);
   const totalPrice = cartProducts.reduce((sum, product) => sum + product.totalPrice, 0);
   const isEnoughCoins = userCoins >= totalPrice;
+  const [isSuccessOrder, setIsSuccessOrder] = useState(false);
 
   function handleOrder() {
-    if (!isEnoughCoins) {
-      alert('У вас недостаточно хаккоинов!');
-      return;
-    }
-
     const orderProducts = cartProducts.map(({ id, amount }) => ({
       product_id: id,
       amount,
@@ -31,7 +26,7 @@ export function Cart({ onClose }) {
       .then((response) => {
         dispatch(getUser());
         dispatch(cartActions.removeAllProducts());
-        alert('Заказ оформлен!');
+        setIsSuccessOrder(true);
       })
       .catch(() => {
         alert('Произошла ошибка!');
@@ -46,9 +41,11 @@ export function Cart({ onClose }) {
     <div className="cart">
       <div className="cart__title-container">
         <h2 className="cart__title">Корзина</h2>
-        <img onClick={onClose} className="cart__close-icon" src={closeIcon} alt="close" />
       </div>
-      {cartProducts.length > 0 ? (
+
+      {isSuccessOrder ? (
+        <h2 className="cart__empty-text cart__empty-text--success">Заказ оформлен</h2>
+      ) : cartProducts.length > 0 ? (
         <>
           <div className="cart__items">
             {cartProducts.map((card, index) => (
@@ -73,7 +70,7 @@ export function Cart({ onClose }) {
           </div>
         </>
       ) : (
-        <h2 className="cart__empty-text">Вы ничего не добавили в корзину</h2>
+        <h2 className="cart__empty-text">Корзина пуста</h2>
       )}
     </div>
   );
